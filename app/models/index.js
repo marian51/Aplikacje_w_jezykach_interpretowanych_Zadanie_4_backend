@@ -2,7 +2,7 @@
  * inicjalizacja Sequlize dla bazy danych
  */
 
-const dbConfig = require("../config/db.config.js");
+const dbConfig = require("../app/config/db.config.js.js");
 
 const Sequelize = require("sequelize");
 const sequelize = new Sequlize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, {
@@ -23,6 +23,6 @@ const db = {};
 db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 
-db.products = require("./product.model.js")(sequelize, Sequelize);
+db.products = require("./product.model.js.js")(sequelize, Sequelize);
 
 module.exports = db;
