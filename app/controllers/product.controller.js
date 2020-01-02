@@ -25,6 +25,18 @@
         description = req.body.description,
         available = req.body.available ? req.body.available : false
     };
+
+    //zapis produktu w bazie
+    Product.create(product)
+        .then(data => {
+            res.send(data);
+        })
+        .catch(error => {
+            res.status(500).send({
+                message:
+                    error.message || "Nieokreślony błąd podczas tworzenia produktu"
+            });
+        });
  };
 
  //Wyciągnięcie wszystkich produktów z bazy
