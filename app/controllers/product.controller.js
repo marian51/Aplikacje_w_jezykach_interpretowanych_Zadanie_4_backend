@@ -11,7 +11,20 @@
 
  //Tworzenie i zapis nowego produktu
  exports.create = (req, res) => {
+    //sprawdzenie poprawności żądania
+    if (!req.body.name) {
+        res.status(400).send({
+            message: "Zawartość nie może być pusta!"
+        });
+        return;
+    }
 
+    //utworzenie produktu
+    const product = {
+        name = req.body.name,
+        description = req.body.description,
+        available = req.body.available ? req.body.available : false
+    };
  };
 
  //Wyciągnięcie wszystkich produktów z bazy
