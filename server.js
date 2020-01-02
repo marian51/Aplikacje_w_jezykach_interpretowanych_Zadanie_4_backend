@@ -1,5 +1,10 @@
+//podstawa dla metod rest
 const express = require("express");
+
+//parsuje żądania i tworzy obiekty req.object
 const bodyParser = require("body-parser");
+
+//umożliwia korzystanie z usług cors
 const cors = require("cors");
 
 const app = express();
@@ -21,7 +26,7 @@ app.get("/", (req, res) => {
     res.json({ message: "Witaj w sklepie." });
 });
 
-//ustawienie portu
+//ustawienie portu od nasłuchu
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
     console.log(`Server dziala na porcie ${PORT}.`);
