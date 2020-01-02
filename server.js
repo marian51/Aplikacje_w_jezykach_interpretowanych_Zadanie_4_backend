@@ -21,6 +21,10 @@ app.use(bodyParser.json());
 //parser url
 app.use(bodyParser.urlencoded({ extended: true }));
 
+//synchornizacja
+const db = require("./app/models");
+db.sequelize.sync();
+
 //podstawowy rout
 app.get("/", (req, res) => {
     res.json({ message: "Witaj w sklepie." });
