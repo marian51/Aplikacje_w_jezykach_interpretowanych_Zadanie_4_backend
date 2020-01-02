@@ -10,7 +10,7 @@ module.exports = (sequelize, Sequelize) => {
         description: {
             type: Sequelize.STRING
         },
-        enabled: {
+        available: {
             type: Sequelize.BOOLEAN
         }
     });
