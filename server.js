@@ -21,9 +21,11 @@ app.use(bodyParser.json());
 //parser url
 app.use(bodyParser.urlencoded({ extended: true }));
 
-//synchornizacja
+//synchornizacja, zrzucanie i tworzenie bazy na nowo
 const db = require("./app/models");
-db.sequelize.sync();
+db.sequelize.sync({ force: true }).then(() => {
+    console.log("Reset bazy");
+});
 
 //podstawowy rout
 app.get("/", (req, res) => {
