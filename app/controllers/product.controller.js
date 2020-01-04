@@ -142,5 +142,14 @@
 
  //znalezienie wszystkich dostępnych produktów
  exports.findAllAvailable = (req, res) => {
-
+    Product.findAll({ where: { available: true } })
+    .then(data => {
+        res.send(data);
+    })
+    .catch(err => {
+        res.status(500).send({
+            message:
+                err.message || "Nieokreślony błąd podczas pobierania wszystkich produktów."
+        });
+    });
  };
