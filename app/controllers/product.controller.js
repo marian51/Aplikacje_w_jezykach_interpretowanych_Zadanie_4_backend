@@ -58,7 +58,17 @@
 
  //Wyszukanie pojedynczego produktu przez ID
  exports.findOne = (req, res) => {
+    const id = req.params.id;
 
+    Product.findByPk(id)
+        .then(data => {
+            res.send(data);
+        })
+        .catch(err => {
+            res.status(500).send({
+                message: "Nieokreślony błąd podczas pobierania produktu o id = "+id
+            });
+        });
  };
 
  //Zmiana produktu przez ID
