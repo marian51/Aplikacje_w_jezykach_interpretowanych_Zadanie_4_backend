@@ -72,8 +72,30 @@
  };
 
  //Zmiana produktu przez ID
- exports.update = (req, req) => {
+ exports.update = (req, res) => {
+    exports.update = (req, res) => {
+        const id = req.params.id;
 
+        Produkt.update(req.body, {
+            where: { id: id }
+        })
+        .then(num => {
+            if (num == 1) {
+                res.send({
+                    message: "Produkt zmieniony poprawnie."
+                });
+            } else {
+                res.send({
+                    message: `Nie można wprowadzić zmiany w produkcie o id = ${id}. Być może produkt nie został znaleziony, bądź został wprowadzony błędnie.`
+                });
+            }
+        })
+        .catch(err => {
+            res.status(500).send({
+                message: "Błąd podczas zmiany w produkcie o id = "+id
+            });
+        });
+    };
  };
 
  //usunięcie produktu
