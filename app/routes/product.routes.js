@@ -16,19 +16,19 @@
     router.get("/", products.findAll);
 
      //pobranie pojedynczego produktu po id
-    router.get("/", products.findOne);
+    router.get("/:id", products.findOne);
 
      //zmiana w produkcie o id
     router.put("/:id", products.update);
 
      //usunięcie produktu
-    router.delete("/", products.delete);
+    router.delete("/:id", products.delete);
 
     //usunięcie wszystkich produktów
     router.delete("/", products.deleteAll);
 
     //pobranie wszystkich dostępnych produktów
-    router.get("/", products.findAllAvailable);
+    router.get("/products/available", products.findAllAvailable);
 
     app.use('/api/products', router);
  }
