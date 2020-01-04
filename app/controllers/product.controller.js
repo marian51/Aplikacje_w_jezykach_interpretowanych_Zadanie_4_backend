@@ -21,9 +21,9 @@
 
     //utworzenie produktu
     const product = {
-        name = req.body.name,
-        description = req.body.description,
-        available = req.body.available ? req.body.available : false
+        name: req.body.name,
+        description: req.body.description,
+        available: req.body.available ? req.body.available : false
     };
 
     //zapis produktu w bazie
