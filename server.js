@@ -32,6 +32,9 @@ app.get("/", (req, res) => {
     res.json({ message: "Witaj w sklepie." });
 });
 
+//routy
+require("./app/routes/product.routes")(app);
+
 //ustawienie portu od nasłuchu
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
