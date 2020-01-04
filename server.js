@@ -10,7 +10,7 @@ const cors = require("cors");
 const app = express();
 
 var corsOptions = {
-    origin: "http://localhost:8081"
+    origin: "http://localhost:8080"
 };
 
 app.use(cors(corsOptions));
@@ -23,9 +23,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 //synchornizacja, zrzucanie i tworzenie bazy na nowo
 const db = require("./app/models");
-db.sequelize.sync({ force: true }).then(() => {
+/*db.sequelize.sync({ force: true }).then(() => {
     console.log("Reset bazy");
-});
+});*/
+db.sequelize.sync();
 
 //podstawowy rout
 app.get("/", (req, res) => {
