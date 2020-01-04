@@ -41,7 +41,19 @@
 
  //Wyciągnięcie wszystkich produktów z bazy
  exports.findAll = (req, res) => {
+    const name = req.query.name;
+    let condition = name ? { name: { [Op.like]: `%${name}%`}} : null;
 
+    Product.findAll({ where: condition })
+        .then(data => {
+            res.send(data);
+        })
+        .catch(err => {
+            res.status(500).send({
+                message:
+                    err.message || "Nieokreślony błąd podczas pobierania produktów."
+            });
+        });
  };
 
  //Wyszukanie pojedynczego produktu przez ID
