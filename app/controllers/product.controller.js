@@ -123,6 +123,23 @@
     });
  };
 
+ //usunięcie wszystkich produktów
+ exports.deleteAll = (req, res) => {
+     Product.destroy({
+         where: {},
+         truncate: false
+     })
+     .then(nums => {
+         res.send({ message: `Produkty ${nums} zostały usunięte poprawnie.`})
+     })
+     .catch(err => {
+         res.status(500).send({
+             message:
+                err.message || "Nieokreślony błąd podczas usuwania wszysktich przedmiotów."
+         });
+     });
+ };
+
  //znalezienie wszystkich dostępnych produktów
  exports.findAllAvailable = (req, res) => {
 
