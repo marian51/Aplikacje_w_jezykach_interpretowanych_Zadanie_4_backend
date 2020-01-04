@@ -149,7 +149,7 @@
     .catch(err => {
         res.status(500).send({
             message:
-                err.message || "Nieokreślony błąd podczas pobierania wszystkich produktów."
+                err.message || "Nieokreślony błąd podczas pobierania wszystkich dostępnch produktów."
         });
     });
  };
