@@ -30,5 +30,5 @@
     //pobranie wszystkich dostępnych produktów
     router.get("/", products.findAllAvailable);
 
-    app.use('/api/tutorials', router);
+    app.use('/api/products', router);
  }
