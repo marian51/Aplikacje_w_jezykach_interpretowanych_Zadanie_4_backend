@@ -42,7 +42,7 @@
  //Wyciągnięcie wszystkich produktów z bazy
  exports.findAll = (req, res) => {
     const name = req.query.name;
-    let condition = name ? { name: { [Op.like]: `%${name}%`}} : null;
+    var condition = name ? { name: { [Op.like]: `%${name}%`}} : null;
 
     Product.findAll({ where: condition })
         .then(data => {
@@ -72,31 +72,30 @@
  };
 
  //Zmiana produktu przez ID
- exports.update = (req, res) => {
-    exports.update = (req, res) => {
-        const id = req.params.id;
+exports.update = (req, res) => {
+    const id = req.params.id;
 
-        Product.update(req.body, {
-            where: { id: id }
-        })
-        .then(num => {
-            if (num == 1) {
-                res.send({
-                    message: "Produkt zmieniony poprawnie."
-                });
-            } else {
-                res.send({
-                    message: `Nie można wprowadzić zmiany w produkcie o id = ${id}. Być może produkt nie został znaleziony, bądź został wprowadzony błędnie.`
-                });
-            }
-        })
-        .catch(err => {
-            res.status(500).send({
-                message: "Błąd podczas zmiany w produkcie o id = "+id
+    Product.update(req.body, {
+        where: { id: id }
+    })
+    .then(num => {
+        if (num == 1) {
+            res.send({
+                message: "Produkt zmieniony poprawnie."
             });
+        } else {
+            res.send({
+                message: `Nie można wprowadzić zmiany w produkcie o id = ${id}. Być może produkt nie został znaleziony, bądź został wprowadzony błędnie.`
+            });
+        }
+    })
+    .catch(err => {
+        res.status(500).send({
+            message: "Błąd podczas zmiany w produkcie o id = "+id
         });
-    };
- };
+    });
+};
+ 
 
  //usunięcie produktu
  exports.delete = (req, res) => {
@@ -142,7 +141,7 @@
 
  //znalezienie wszystkich dostępnych produktów
  exports.findAllAvailable = (req, res) => {
-    Product.findAll({ where: { available: true } })
+    Product.findAll({ where: {available: true  } })
     .then(data => {
         res.send(data);
     })
