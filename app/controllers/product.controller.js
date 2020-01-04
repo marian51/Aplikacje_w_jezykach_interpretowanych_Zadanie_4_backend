@@ -76,7 +76,7 @@
     exports.update = (req, res) => {
         const id = req.params.id;
 
-        Produkt.update(req.body, {
+        Product.update(req.body, {
             where: { id: id }
         })
         .then(num => {
@@ -100,7 +100,27 @@
 
  //usunięcie produktu
  exports.delete = (req, res) => {
+    const id = req.params.id;
 
+    Product.destroy({
+        where: { id: id }
+    })
+    .then(num => {
+        if (num == 1) {
+            res.send({
+                message: "Produkt został usunięty pomyślnie."
+            });
+         } else {
+             res.send ({
+                 message: `Nie można usunąć produktu o id =${id}. Być może produkt nie został znaleziony.`
+             });
+         }
+    })
+    .catch(err => {
+        res.status(500).send({
+            message: "Nie można usunąć produktu o id = "+id
+        });
+    });
  };
 
  //znalezienie wszystkich dostępnych produktów
