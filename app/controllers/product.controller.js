@@ -23,6 +23,8 @@
     const product = {
         name: req.body.name,
         description: req.body.description,
+        price: req.body.price,
+        weight: req.body.weight,
         available: req.body.available ? req.body.available : false
     };
 
