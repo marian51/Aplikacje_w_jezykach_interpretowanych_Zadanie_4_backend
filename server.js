@@ -10,7 +10,7 @@ const cors = require("cors");
 const app = express();
 
 var corsOptions = {
-    origin: "http://localhost:8080"
+    origin: "http://localhost:8081"
 };
 
 app.use(cors(corsOptions));
@@ -35,6 +35,7 @@ app.get("/", (req, res) => {
 
 //routy
 require("./app/routes/product.routes")(app);
+require("./app/routes/category.routes")(app);
 
 //ustawienie portu od nasłuchu
 const PORT = process.env.PORT || 8080;
