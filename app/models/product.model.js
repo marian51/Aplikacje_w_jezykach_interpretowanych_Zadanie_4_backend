@@ -10,10 +10,18 @@ module.exports = (sequelize, Sequelize) => {
         description: {
             type: Sequelize.STRING
         },
+        price: {
+            type: Sequelize.DOUBLE
+        },
+        weight: {
+            type: Sequelize.DOUBLE
+        },
         available: {
             type: Sequelize.BOOLEAN
         }
     });
+
+    //Próba utworzenia relacji Many-to-Many
 
     return Product;
 }
