@@ -16,6 +16,9 @@ module.exports = (sequelize, Sequelize) => {
         weight: {
             type: Sequelize.DOUBLE
         },
+        categoryId: {
+            type: Sequelize.INTEGER
+        },
         available: {
             type: Sequelize.BOOLEAN
         }
