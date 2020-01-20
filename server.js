@@ -36,6 +36,7 @@ app.get("/", (req, res) => {
 //routy
 require("./app/routes/product.routes")(app);
 require("./app/routes/category.routes")(app);
+require("./app/routes/order.routes")(app);
 
 //ustawienie portu od nasłuchu
 const PORT = process.env.PORT || 8080;
