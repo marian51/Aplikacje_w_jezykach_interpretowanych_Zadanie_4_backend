@@ -26,22 +26,22 @@ node server.js
   - [ ] wyświetlanie listy jako tabeli
   - [x] wyszukiwanie po nazwie
   - [ ] lista produktów według kategorii
-  - [ ] filtroanie listy
+  - [ ] filtrowanie listy
 - [x] Kategorie
 - [ ] Zamówienie
-  - [ ] informacje o zamówieniu (data, stan, nazwa użytkownika, email, numer telefonu, lista produktów wraz z ilością)
-  - [ ] utworzenie bazy zamówień
+  - [x] informacje o zamówieniu (data, stan, nazwa użytkownika, email, numer telefonu, lista produktów wraz z ilością)
+  - [x] utworzenie bazy zamówień
   - [ ] stan zamówienia (niezatwierdzone/zatwierdzone/anulowane/zrealizowane)
   - [ ] utworzenie bazy stanów zamówienia
   - [ ] wyświetlenie listy zamówień
   - [ ] wyświetlenie listy zamówień konkretnego użytkownika
   - [ ] zmiana stanu zamówienia (np. przyciskami)
   - [ ] wyświetlenie zamówień według stanu
-  - [ ] formularz kontaktowy
-  - [ ] informacja o łącznej wartości zamówienia
-- [ ] Koszyk `jeszcze nie ma w backendzie`
-  - [ ] dodawanie produktów do koszyka
-- [ ] Walidacja danych w formularzach
+  - [x] formularz kontaktowy
+  - [x] informacja o łącznej wartości zamówienia
+- [x] Koszyk
+  - [x] dodawanie produktów do koszyka
+- [x] Walidacja danych w formularzach
 - [x] Zabezpieczenie dostępu
 - [x] Responsywny framework
 
