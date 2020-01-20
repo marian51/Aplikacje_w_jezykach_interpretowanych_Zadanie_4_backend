@@ -6,5 +6,7 @@ module.exports = app => {
     //utworzenie zamówienia w bazie
     router.post("/", orders.create);
 
+    router.get("/", orders.findAll);
+
     app.use('/api/orders', router);
 }
