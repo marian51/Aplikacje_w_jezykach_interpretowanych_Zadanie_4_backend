@@ -28,6 +28,14 @@ const db = require("./app/models");
 });*/
 db.sequelize.sync();
 
+// Należy wykonać ręcznie po wyczyszczenu bazy
+/*
+let state1 = db.states.create({ stateName: 'Niezatwierdzone' });
+let state2 = db.states.create({ stateName: 'Zatwierdzone' });
+let state3 = db.states.create({ stateName: 'Anulowane' });
+let state4 = db.states.create({ stateName: 'Zrealizowane' });
+*/
+
 //podstawowy rout
 app.get("/", (req, res) => {
     res.json({ message: "Witaj w sklepie." });
@@ -37,6 +45,10 @@ app.get("/", (req, res) => {
 require("./app/routes/product.routes")(app);
 require("./app/routes/category.routes")(app);
 require("./app/routes/order.routes")(app);
+require("./app/routes/state.routes")(app);
+require("./app/routes/order_products.routes")(app);
+
+
 
 //ustawienie portu od nasłuchu
 const PORT = process.env.PORT || 8080;
