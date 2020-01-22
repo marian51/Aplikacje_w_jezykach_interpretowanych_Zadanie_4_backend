@@ -15,7 +15,8 @@ exports.create = (req, res) => {
         userEmail: req.body.userEmail,
         userPhone: req.body.userPhone,
         stateId: req.body.stateId,
-        totalPrice: req.body.totalPrice
+        totalPrice: req.body.totalPrice,
+        acceptDate: null
     };
 
     Order.create(order)
@@ -45,3 +46,27 @@ exports.findAll = (req, res) => {
             });
         });
  };
+
+ exports.update = (req, res) => {
+    const id = req.params.id;
+
+    Order.update(req.body, {
+        where: { id: id }
+    })
+    .then(num => {
+        if (num == 1) {
+            res.send({
+                message: "Produkt zmieniony poprawnie."
+            });
+        } else {
+            res.send({
+                message: `Nie można wprowadzić zmiany w produkcie o id = ${id}. Być może produkt nie został znaleziony, bądź został wprowadzony błędnie.`
+            });
+        }
+    })
+    .catch(err => {
+        res.status(500).send({
+            message: "Błąd podczas zmiany w produkcie o id = "+id
+        });
+    });
+};
