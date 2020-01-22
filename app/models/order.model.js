@@ -14,6 +14,9 @@ module.exports = (sequelize, Sequelize) => {
         },
         totalPrice: {
             type: Sequelize.DOUBLE
+        },
+        acceptDate: {
+            type: Sequelize.DATE
         }
     });
 
