@@ -18,6 +18,9 @@
      //pobranie pojedynczego produktu po id
     router.get("/:id", products.findOne);
 
+    //pobranie produktów po kategorii
+    router.get("/products/:id", products.findByCategory);
+
      //zmiana w produkcie o id
     router.put("/:id", products.update);
 
