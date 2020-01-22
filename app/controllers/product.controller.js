@@ -59,8 +59,42 @@
         });
  };
 
+ exports.findByCategory = (req, res) => {
+    console.log("tu")
+    console.log(req.params)
+    Product.findAll({ where: {categoryId: req.params.id  } })
+    .then(data => {
+        res.send(data);
+    })
+    .catch(err => {
+        res.status(500).send({
+            message:
+                err.message || "Nieokreślony błąd podczas pobierania wszystkich dostępnch produktów."
+        });
+    });
+
+    /*
+    const categoryId = req.query.categoryId;
+    var condition = categoryId ? { categoryId: { [Op.like]: `%${categoryId}%`}} : null;
+
+    Product.findAll({ where: condition })
+        .then(data => {
+            res.send(data);
+        })
+        .catch(err => {
+            res.status(500).send({
+                message:
+                    err.message || "Nieokreślony błąd podczas pobierania produktów."
+            });
+        });
+        */
+
+ };
+
  //Wyszukanie pojedynczego produktu przez ID
  exports.findOne = (req, res) => {
+     console.log("tu")
+     console.log(req.params)
     const id = req.params.id;
 
     Product.findByPk(id)
