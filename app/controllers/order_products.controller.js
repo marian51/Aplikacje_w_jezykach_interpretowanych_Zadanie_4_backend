@@ -29,8 +29,8 @@ exports.create = (req, res) => {
 };
 
 exports.findAll = (req, res) => {
-    const name = req.query.orderId;
-    var condition = name ? { name: { [Op.like]: `%${name}%`}} : null;
+    const orderId = req.query.orderId;
+    var condition = orderId ? { orderId: { [Op.like]: `%${orderId}%`}} : null;
 
     OrderProduct.findAll({ where: condition })
         .then(data => {
